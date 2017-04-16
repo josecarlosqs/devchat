@@ -1,12 +1,24 @@
 import React,{Component} from 'react'
 import {View,Text,StyleSheet,AppRegistry} from 'react-native'
+import {Scene, Router} from 'react-native-router-flux'
 
-export default class app extends Component{
-	render(){
-		return (
-			<View><Text>Hola Mundo!</Text></View>
-		)
-	}
+import Login from './screens/login'
+import Register from './screens/register'
+import Chat from './screens/chat'
+
+
+export default class app extends Component {
+  render() {
+    return (
+    <Router>
+      <Scene key="root">
+        <Scene key="login" component={Login} title="Login"/>
+        <Scene key="register" component={Register} title="Register"/>
+        <Scene key="chat" component={Chat}/>
+      </Scene>
+    </Router>
+    )
+  }
 }
 
 AppRegistry.registerComponent('devchat', () => app)
